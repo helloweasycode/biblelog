@@ -1,38 +1,129 @@
-.App {
+*{
+  margin:0px;
+  padding:0px;
+  text-decoration: none;
+  color:#222;
+  box-sizing: border-box;
+  font-family: "맑은 고딕", Arial, Helvetica, sans-serif;
+  line-height:1.6;
+  font-size: 15px;
+}
+.App{
+  background-color:#fafafa;
+  width:960px;
+  margin:20px auto;
+  padding:20px 45px;
+  box-sizing:border-box;
+}
+body{
+  background-color:#a1a1a1;
+}
+h1{
+  font-size:36px;
   text-align: center;
+  margin-bottom:50px;
+}
+button{
+  border:none;
+  height:35px;
+  color:#fafafa;
+  letter-spacing: 1px;
+  border-radius: 3px;
+}
+/* MainPage ============================================*/
+.gowrite-btn{
+  background-color:#1373d2;
+  width:120px;
+}
+.verse-list{
+  list-style-type:none;
+}
+.verse-list li{
+  border-bottom:1px solid #a1a1a1;
+  padding-left:10px;
+}
+.verse-list li span{
+  display:inline-block;
+  width:20px;
+}
+.verse-list li:hover{
+  background-color:#c6dffb;
+}
+.verse-list li p{
+  padding:12px 0px 12px 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* PostWritePage ============================================*/
+.btn-wrap{
+  text-align: right;
+  padding:20px;
+  margin-bottom:20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.write-wrap{
+  padding:45px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.write-wrap input[type="text"]{
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+  border:1px solid #c0c0c0;
+  outline:none;
 }
-
-.App-link {
-  color: #61dafb;
+.write-wrap textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #c0c0c0;
+  outline:none;
+  resize: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btns-wrap{
+  text-align: right;
+  margin:20px 0px;
+  width:100%;
+}
+.btns-wrap .btn-write{
+  background-color:#1373d2;
+  width:140px;
+  margin-right:6px;
+}
+.btns-wrap .btn-reset{
+  background-color:#808080;
+  width:80px;
+  margin-right:6px;
+}
+.btns-wrap .btn-goback{
+  background-color:#808080;
+  width:80px;
+}
+/* PostDetail ============================================*/
+.detail-wrap{
+  padding:45px;
+}
+.detail-wrap .delete-btn{
+  background-color:#cb3d3d;
+  width:120px;
+  margin-right:6px;
+}
+.detail-wrap .modify-btn{
+  background-color:#808080;
+  width:80px;
+  margin-right:6px;
+}
+.detail-wrap .btn-goback{
+  background-color:#808080;
+  width:80px;
+}
+.detail-wrap input[type="text"]{
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+  border:1px solid #c0c0c0;
+  outline:none;
+}
+.detail-wrap textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #c0c0c0;
+  outline:none;
+  resize: none;
 }

@@ -1,20 +1,22 @@
-import {useState, useEffect} from "react";
-import Axios from "axios";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from "./component/MainPage";
+import PostWritePage from "./component/PostWritePage";
+import PostDetail from "./component/PostDetail";
+import "./App.css";
 
 function App() {
-  const [viewContent, setViewContent] = useState([]);
-
-  useEffect(() => {
-    Axios.get("http://localhost:8200/get")
-    .then((response) => {
-      setViewContent(response.data);
-    })},[viewContent])
-
   return (
     <div className="App">
-      {viewContent.map((element, idx) => 
-        <p key={idx}>{element.bibleverse} / {element.meditate}</p>
-      )}
+      <BrowserRouter>
+        <h1>BIBLELOG</h1>
+        <Routes>
+          <Route index element={ <MainPage /> } />
+          <Route path="postwrite" element={ <PostWritePage /> } />
+          <Route path="/detail/:id" element={ <PostDetail />}/>
+          <Route path="/delete/:id" element={ <MainPage />}/>
+        </Routes>   
+      </BrowserRouter>
     </div>
   );
 }

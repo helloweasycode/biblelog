@@ -1,0 +1,35 @@
+import {useState, useEffect} from "react";
+import { useNavigate, BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import PostView from "./PostView";
+import Axios from "axios";
+
+function PostVerseList(props){
+    const [posts, setPosts] = useState([]);
+
+    //server.js 페이지에서 데이터 가져오기
+    useEffect(() => {
+      Axios.get("http://localhost:8200/get")
+      .then((response) => {
+        setPosts(response.data);
+      })},[posts])
+
+    return(
+        <>
+            <ul>
+                {posts.map((el, idx) => //posts는 데이터들을 가지고 있다. map은 데이터의 갯수만큼 아래를 실행
+                    <li key={idx}>
+                        {idx + 1}. &nbsp;
+                        <Link to={`/detail/${el.id}`}>
+                            {el.bibleverse}
+                        </Link>
+                    </li>
+                )}
+            </ul>
+            <Routes>
+                <Route path="/:id" element={<PostView />} />
+            </Routes>
+        </>
+    )
+}
+
+export default PostVerseList;

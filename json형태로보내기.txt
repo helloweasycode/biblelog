@@ -1,0 +1,24 @@
+import {useState} from "react";
+import Axios from "axios";
+
+function PostWritePage(){
+    const [values, setValues] = useState({}); //input의 값을 json형태로 받기위한 state생성
+
+    //input에서 값을 입력할 때 state의 값을 변경해주는 함수 
+    const handleChange = (e) => {
+        const {name, value} = e.target; //input의 이름과 값을 가져온다.
+        setValues((prevValues) => ({ //useState의 함수에 복사한 값을 넘겨주면 values의 값을 바꾸고 화면을 갱신한다.
+            ...prevValues, //이전의 값을 복사한다(리액트는 값을 바로 바꿀수 없다)
+            [name]:value, //이름에 기반하여 값을 가져옴
+        }))
+    }
+
+    //submit 핸들 함수를 통해 api호출하여 서비스에 전달한다.
+    const handleSubmit = () => {
+        Axios.post("http://localhost:8200/insert", {
+            bibleverse:"test",
+            mediatte:"test"
+        }).then(() => alert("등록완료"))
+    }
+}
+export default PostWritePage;
